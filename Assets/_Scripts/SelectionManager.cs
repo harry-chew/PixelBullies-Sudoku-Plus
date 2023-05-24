@@ -9,7 +9,7 @@ public class SelectionManager : MonoBehaviour
 
     [SerializeField] private GameObject _numberSelectionPanel;
     [SerializeField] private GameObject _numberSelectionButtonTemplate;
-    [SerializeField] private int _numberSelectionButtonCount = 9;
+    [SerializeField] private int _numberSelectionButtonCount;
 
     [SerializeField] private Tile selectedTile;
     [SerializeField] private int selectedNumber;
@@ -30,6 +30,8 @@ public class SelectionManager : MonoBehaviour
     private void Start()
     {
         Generate();
+
+        _numberSelectionButtonCount = 4;
     }
 
     private void Generate()
@@ -48,6 +50,12 @@ public class SelectionManager : MonoBehaviour
     {
         selectedTile = tile;
         selectedNumber = tile.GetTileNumber();
+    }
+
+    public void DeselectTile()
+    {
+        selectedTile = null;
+        selectedNumber = 0;
     }
 
     public Tile GetSelectedTile()
