@@ -52,7 +52,7 @@ public class LevelManager : MonoBehaviour
         int[] tileNumbers = ld.GetLevel();
         int[] visibleNumbers = ld.GetVisible();
 
-        int boardWidthInPixels = 1920;
+        int boardWidthInPixels = 1800;
         
         _gameBoard.GetComponent<RectTransform>().sizeDelta = new Vector2(boardWidthInPixels, boardWidthInPixels);
         _gameBoard.GetComponent<GridLayoutGroup>().cellSize = new Vector2(boardWidthInPixels / width, boardWidthInPixels / width);
@@ -77,7 +77,7 @@ public class LevelManager : MonoBehaviour
         for (int k = 0; k < ld.GetHints().Count; k++)
         {
             GameObject hint = Instantiate(_hintPrefab, _hintsBoard.transform);
-            hint.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -(k * 50));
+            //hint.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -(k * 100));
             hint.GetComponent<TMPro.TextMeshProUGUI>().text = ld.GetHints()[k];
         }
         _hintPrefab.SetActive(false);
